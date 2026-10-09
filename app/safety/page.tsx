@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -24,6 +25,7 @@ export default function SafetyPage() {
           <div className="wrap safety-groups">
             <div className="safety-group" id="customers">
               <div>
+                <Image className="group-logo" src="/img/gorush.png" alt="" width={194} height={40} />
                 <h2>For customers</h2>
                 <p>Know who&apos;s carrying your delivery and where it is.</p>
               </div>
@@ -99,6 +101,7 @@ export default function SafetyPage() {
 
             <div className="safety-group" id="partners">
               <div>
+                <Image className="group-logo" src="/img/gorush-partner.png" alt="" width={194} height={40} />
                 <h2>For delivery partners</h2>
                 <p>Safe riding, clear expectations and help when you need it.</p>
               </div>
@@ -174,7 +177,8 @@ export default function SafetyPage() {
 
             <div className="safety-group" id="businesses">
               <div>
-                <h2>For businesses</h2>
+                <Image className="group-logo" src="/img/gorush-store.png" alt="" width={194} height={40} />
+                <h2>For stores &amp; businesses</h2>
                 <p>Visibility and accountability on every order you send.</p>
               </div>
               <div className="safety-items">

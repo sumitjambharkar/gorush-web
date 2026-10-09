@@ -64,7 +64,7 @@ export default function HeroMap() {
           <mpath href="#routePath" />
         </animateMotion>
       </g>
-      <g fontFamily="Barlow, Arial, sans-serif" fontSize="13" fontWeight="600" fill="#1B2130">
+      <g style={{ fontFamily: "var(--body)" }} fontSize="13" fontWeight="600" fill="#1B2130">
         <rect x="22" y="268" width="90" height="24" rx="12" fill="#fff" stroke="#DCE0E6" />
         <text x="67" y="284.5" textAnchor="middle">
           Pickup

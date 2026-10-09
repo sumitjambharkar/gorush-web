@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import HeroMap from "@/components/HeroMap";
 
@@ -137,23 +138,11 @@ export default function HomePage() {
         <section className="section" aria-labelledby="lanes-title">
           <div className="wrap">
             <div className="section-head">
-              <h2 id="lanes-title">One platform, three ways to use it.</h2>
+              <h2 id="lanes-title">One platform for customers, stores and riders.</h2>
             </div>
             <div className="lanes">
               <div className="lane">
-                <svg
-                  className="icon"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M3.5 7.5L12 3l8.5 4.5v9L12 21l-8.5-4.5z" />
-                  <path d="M3.5 7.5L12 12l8.5-4.5M12 12v9" />
-                </svg>
+                <Image className="lane-logo" src="/img/gorush.png" alt="GoRush" width={232} height={48} />
                 <h3>Send something</h3>
                 <p>Book a pickup, follow the rider on the map and know the moment it arrives.</p>
                 <a className="text-link" href="#how">
@@ -161,42 +150,35 @@ export default function HomePage() {
                 </a>
               </div>
               <div className="lane">
-                <svg
-                  className="icon"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M4 9.5V20h16V9.5M3 9.5l2-5.5h14l2 5.5c0 1.7-1.3 3-3 3s-3-1.3-3-3c0 1.7-1.3 3-3 3s-3-1.3-3-3c0 1.7-1.3 3-3 3s-3-1.3-3-3z" />
-                  <path d="M10 20v-5h4v5" />
-                </svg>
+                <Image
+                  className="lane-logo"
+                  src="/img/gorush-store.png"
+                  alt="GoRush Store"
+                  width={232}
+                  height={48}
+                />
                 <h3>Deliver for your business</h3>
-                <p>Hand your local deliveries to our rider network and give customers live tracking.</p>
+                <p>
+                  GoRush Store hands your local deliveries to our rider network and gives customers live
+                  tracking.
+                </p>
                 <a className="text-link" href="#business">
-                  GoRush for business
+                  About GoRush Store
                 </a>
               </div>
               <div className="lane">
-                <svg
-                  className="icon"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <circle cx="5.5" cy="16.5" r="3.5" />
-                  <circle cx="18.5" cy="16.5" r="3.5" />
-                  <path d="M5.5 16.5l4-7h5l4 7M9.5 9.5L8 6H5.5M14.5 9.5l1.5-3.5h2.5" />
-                </svg>
+                <Image
+                  className="lane-logo"
+                  src="/img/gorush-partner.png"
+                  alt="GoRush Partner"
+                  width={232}
+                  height={48}
+                />
                 <h3>Ride with GoRush</h3>
-                <p>Pick up delivery requests near you and earn on the hours that suit you.</p>
+                <p>
+                  With GoRush Partner, you pick up delivery requests near you and earn on the hours that suit
+                  you.
+                </p>
                 <a className="text-link" href="#courier">
                   Become a courier
                 </a>
@@ -389,7 +371,7 @@ export default function HomePage() {
         <section className="section section-concrete" id="business" aria-labelledby="biz-title">
           <div className="wrap split">
             <div>
-              <h2 id="biz-title">Local delivery your customers can count on.</h2>
+              <h2 id="biz-title">GoRush Store: local delivery your customers can count on.</h2>
               <p className="lead" style={{ marginTop: "18px" }}>
                 Shops, restaurants and online sellers use GoRush to handle last-mile delivery without running
                 their own fleet.
@@ -484,6 +466,13 @@ export default function HomePage() {
               </Link>
             </div>
             <div className="panel">
+              <Image
+                className="panel-logo"
+                src="/img/gorush-store-white.png"
+                alt="GoRush Store"
+                width={271}
+                height={56}
+              />
               <h3>Good fit for</h3>
               <p>Businesses sending regular same-day orders within the city.</p>
               <dl>
@@ -513,76 +502,79 @@ export default function HomePage() {
             <div>
               <h2 id="courier-title">Your bike. Your hours. Your earnings.</h2>
               <p>
-                Join GoRush as a delivery partner and get delivery requests from people and businesses near
-                you. Ride when it suits you and switch off when it doesn&apos;t.
+                Join GoRush Partner and get delivery requests from people and businesses near you. Ride when
+                it suits you and switch off when it doesn&apos;t.
               </p>
               <Link href="/contact?type=courier" className="btn btn-light">
                 Apply to ride
               </Link>
             </div>
-            <ul aria-label="What you need to get started">
-              <li>
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <circle cx="5.5" cy="16.5" r="3.5" />
-                  <circle cx="18.5" cy="16.5" r="3.5" />
-                  <path d="M5.5 16.5l4-7h5l4 7M9.5 9.5L8 6H5.5M14.5 9.5l1.5-3.5h2.5" />
-                </svg>
-                <span>A bike and a smartphone</span>
-              </li>
-              <li>
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z" />
-                  <path d="M8.5 12l2.5 2.5 4.5-5" />
-                </svg>
-                <span>Complete our partner verification</span>
-              </li>
-              <li>
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <circle cx="12" cy="12" r="8.5" />
-                  <path d="M12 7.5V12l3 2" />
-                </svg>
-                <span>Choose when you&apos;re available</span>
-              </li>
-              <li>
-                <svg
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1.8"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  aria-hidden="true"
-                >
-                  <path d="M4 5h16v11H9l-5 4z" />
-                  <path d="M8 10h8" />
-                </svg>
-                <span>Partner support whenever you&apos;re on the road</span>
-              </li>
-            </ul>
+            <div className="partner-card">
+              <Image src="/img/gorush-partner.png" alt="GoRush Partner" width={271} height={56} />
+              <ul aria-label="What you need to get started">
+                <li>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <circle cx="5.5" cy="16.5" r="3.5" />
+                    <circle cx="18.5" cy="16.5" r="3.5" />
+                    <path d="M5.5 16.5l4-7h5l4 7M9.5 9.5L8 6H5.5M14.5 9.5l1.5-3.5h2.5" />
+                  </svg>
+                  <span>A bike and a smartphone</span>
+                </li>
+                <li>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M12 3l8 3v6c0 4.5-3.4 8-8 9-4.6-1-8-4.5-8-9V6z" />
+                    <path d="M8.5 12l2.5 2.5 4.5-5" />
+                  </svg>
+                  <span>Complete our partner verification</span>
+                </li>
+                <li>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <circle cx="12" cy="12" r="8.5" />
+                    <path d="M12 7.5V12l3 2" />
+                  </svg>
+                  <span>Choose when you&apos;re available</span>
+                </li>
+                <li>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.8"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="M4 5h16v11H9l-5 4z" />
+                    <path d="M8 10h8" />
+                  </svg>
+                  <span>Partner support whenever you&apos;re on the road</span>
+                </li>
+              </ul>
+            </div>
           </div>
         </section>
 

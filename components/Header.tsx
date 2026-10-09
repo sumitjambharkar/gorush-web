@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
@@ -19,14 +20,8 @@ export default function Header() {
   return (
     <header className="header">
       <div className="wrap nav">
-        <Link href="/" className="logo" aria-label="GoRush.bike home">
-          <svg className="logo-mark" viewBox="0 0 32 32" aria-hidden="true">
-            <rect width="32" height="32" rx="9" fill="#FF5A1F" />
-            <circle cx="18.5" cy="16" r="6.5" fill="none" stroke="#fff" strokeWidth="3" />
-            <path d="M4.5 11.5h6M3 16h5.5M4.5 20.5h6" stroke="#fff" strokeWidth="2.4" strokeLinecap="round" />
-          </svg>
-          Go<b>Rush</b>
-          <small>.bike</small>
+        <Link href="/" className="logo">
+          <Image src="/img/gorush.png" alt="GoRush" width={194} height={40} priority />
         </Link>
         <button
           className="menu-btn"
@@ -52,7 +47,7 @@ export default function Header() {
           ))}
           <div className="menu-actions">
             <Link href="/#business" className="btn btn-ghost btn-sm" onClick={close}>
-              For business
+              For stores
             </Link>
             <Link href="/#courier" className="btn btn-primary btn-sm" onClick={close}>
               Become a courier

@@ -1,30 +1,29 @@
 import type { Metadata, Viewport } from "next";
-import { Barlow, Barlow_Condensed } from "next/font/google";
+import { Archivo } from "next/font/google";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import "./globals.css";
 
-const barlow = Barlow({
+// Variable font; headings use the width axis (font-stretch / "wdth").
+const archivo = Archivo({
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
-  variable: "--font-barlow",
-  display: "swap",
-});
-
-const barlowCondensed = Barlow_Condensed({
-  subsets: ["latin"],
-  weight: ["700", "800"],
-  variable: "--font-barlow-condensed",
+  axes: ["wdth"],
+  style: ["normal", "italic"],
+  variable: "--font-archivo",
   display: "swap",
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://gorush.bike"),
   title: {
     default: "GoRush.bike | Fast local delivery by bike",
     template: "%s | GoRush.bike",
   },
   description:
     "Send parcels, documents, food and essentials across town with GoRush. Verified riders, live tracking and PIN-protected handover.",
+  openGraph: {
+    images: "/img/gorush-icon.png",
+  },
 };
 
 export const viewport: Viewport = {
@@ -33,7 +32,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${barlow.variable} ${barlowCondensed.variable}`}>
+    <html lang="en" className={archivo.variable}>
       <body>
         <a className="skip" href="#main">
           Skip to content

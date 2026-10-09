@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 export default function Footer() {
@@ -6,19 +7,8 @@ export default function Footer() {
       <div className="wrap">
         <div className="footer-grid">
           <div className="footer-brand">
-            <Link href="/" className="logo" aria-label="GoRush.bike home">
-              <svg className="logo-mark" viewBox="0 0 32 32" aria-hidden="true">
-                <rect width="32" height="32" rx="9" fill="#FF5A1F" />
-                <circle cx="18.5" cy="16" r="6.5" fill="none" stroke="#fff" strokeWidth="3" />
-                <path
-                  d="M4.5 11.5h6M3 16h5.5M4.5 20.5h6"
-                  stroke="#fff"
-                  strokeWidth="2.4"
-                  strokeLinecap="round"
-                />
-              </svg>
-              Go<b>Rush</b>
-              <small>.bike</small>
+            <Link href="/" className="logo">
+              <Image src="/img/gorush-white.png" alt="GoRush" width={194} height={40} />
             </Link>
             <p>
               Fast, local delivery by bike. Connecting customers, businesses and delivery partners in one
@@ -57,7 +47,7 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h4>Business</h4>
+            <h4>Stores</h4>
             <ul>
               <li>
                 <Link href="/#business">Business delivery</Link>

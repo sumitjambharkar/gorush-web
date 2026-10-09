@@ -15,12 +15,13 @@ npm run build && npm start   # production
 ```
 app/
   layout.tsx          Shared shell: fonts (next/font), header, footer, skip link
-  globals.css         Original style.css, wired to next/font variables
-  icon.svg            Favicon
+  globals.css         Design stylesheet, wired to the next/font Archivo variable
+  icon.png            Favicon (apple-icon.png for iOS)
   page.tsx            Home        (was index.html)
   about/page.tsx      About       (was about.html)
   safety/page.tsx     Safety      (was safety.html)
   contact/page.tsx    Contact     (was contact.html)
+public/img/           Brand logos (GoRush, Store, Partner + white variants)
 components/
   Header.tsx          Mobile menu + active link (client component)
   Footer.tsx          Shared footer with current year
