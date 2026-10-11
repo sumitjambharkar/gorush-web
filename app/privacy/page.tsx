@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     "How GoRush collects, uses, shares and protects personal information across GoRush, GoRush Partner and GoRush Store.",
 };
 
-const PRIVACY_EMAIL = "steynkoli08@gmail.com";
+const PRIVACY_EMAIL = "support@gorush.bike";
 
 export default function PrivacyPage() {
   return (
