@@ -24,6 +24,9 @@ export const metadata: Metadata = {
   openGraph: {
     images: "/img/gorush-icon.png",
   },
+  verification: {
+    google: "lFm4Lyey2Dhxnlq64lnY_yWu5kZYrDTaZB2PKc1DyH4",
+  },
 };
 
 export const viewport: Viewport = {
