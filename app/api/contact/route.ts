@@ -39,9 +39,9 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: "Please fill in all required fields." }, { status: 400 });
   }
 
-  const apiKey = process.env.RESEND_API_KEY;
-  const to = process.env.CONTACT_TO_EMAIL;
-  const from = process.env.CONTACT_FROM_EMAIL;
+  const apiKey = "RESEND_API_KEY";
+  const to = "support@gorush.bike";
+  const from = "GoRush Website <website@gorush.bike>";
   if (!apiKey || !to || !from) {
     console.error("Contact form is not configured: set RESEND_API_KEY, CONTACT_TO_EMAIL and CONTACT_FROM_EMAIL.");
     return NextResponse.json({ error: "Messages can't be sent right now." }, { status: 503 });
