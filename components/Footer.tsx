@@ -22,9 +22,6 @@ export default function Footer() {
                 <Link href="/#how">Book a delivery</Link>
               </li>
               <li>
-                <Link href="/#how">Track an order</Link>
-              </li>
-              <li>
                 <Link href="/#send">What you can send</Link>
               </li>
               <li>
@@ -81,19 +78,7 @@ export default function Footer() {
           </p>
           <ul>
             <li>
-              <a href="#">Privacy policy</a>
-            </li>
-            <li>
-              <a href="#">Cookie policy</a>
-            </li>
-            <li>
-              <a href="#">Terms &amp; conditions</a>
-            </li>
-            <li>
-              <a href="#">Refunds &amp; cancellations</a>
-            </li>
-            <li>
-              <a href="#">Community guidelines</a>
+              <Link href="/privacy">Privacy policy</Link>
             </li>
           </ul>
         </div>

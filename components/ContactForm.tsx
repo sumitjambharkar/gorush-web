@@ -22,12 +22,15 @@ const TYPE_MAP: Record<string, string> = {
   safety: "Report a safety concern",
 };
 
-type Field = "name" | "email" | "type" | "message";
+const SUPPORT_EMAIL = "support@gorush.bike";
+
+type Field ="name" | "email" | "type" | "message";
 type Control = HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement;
 
 export default function ContactForm() {
   const [invalid, setInvalid] = useState<Partial<Record<Field, boolean>>>({});
-  const [status, setStatus] = useState("");
+  const [status, setStatus] = useState<{ ok: boolean; text: string } | null>(null);
+  const [sending, setSending] = useState(false);
   const [topic, setTopic] = useState("");
 
   useEffect(() => {
@@ -47,7 +50,7 @@ export default function ContactForm() {
 
   const fieldClass = (name: Field) => (invalid[name] ? "field invalid" : "field");
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const form = e.currentTarget;
     let firstBad: Control | null = null;
@@ -56,16 +59,32 @@ export default function ContactForm() {
     });
     if (firstBad) {
       (firstBad as Control).focus();
-      setStatus("");
+      setStatus(null);
       return;
     }
 
-    // TODO: send the form data to your backend or an API route here.
-    const email = (form.elements.namedItem("email") as HTMLInputElement).value;
-    setStatus(`Message sent. We'll reply to ${email} as soon as we can.`);
-    form.reset();
-    setTopic("");
-    setInvalid({});
+    const data = Object.fromEntries(new FormData(form));
+    setSending(true);
+    setStatus(null);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+      if (!res.ok) throw new Error(String(res.status));
+      setStatus({ ok: true, text: `Message sent. We'll reply to ${data.email} as soon as we can.` });
+      form.reset();
+      setTopic("");
+      setInvalid({});
+    } catch {
+      setStatus({
+        ok: false,
+        text: `Sorry, your message couldn't be sent. Please try again, or email us at ${SUPPORT_EMAIL}.`,
+      });
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
@@ -128,11 +147,20 @@ export default function ContactForm() {
         />
         <p className="error">Write a short message so we know how to help.</p>
       </div>
-      <button type="submit" className="btn btn-primary btn-block">
-        Send message
+      {/* Honeypot for spam bots; hidden from people and screen readers */}
+      <div className="hp" aria-hidden="true">
+        <label htmlFor="company">Company</label>
+        <input id="company" name="company" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
+      <button type="submit" className="btn btn-primary btn-block" disabled={sending}>
+        {sending ? "Sending…" : "Send message"}
       </button>
-      <p className={status ? "form-status show" : "form-status"} role="status" aria-live="polite">
-        {status}
+      <p
+        className={status ? `form-status show${status.ok ? "" : " error"}` : "form-status"}
+        role="status"
+        aria-live="polite"
+      >
+        {status?.text}
       </p>
     </form>
   );

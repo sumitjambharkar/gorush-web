@@ -361,8 +361,8 @@ export default function HomePage() {
                 </div>
               </div>
               <p className="fineprint">
-                Some items can&apos;t be carried. See our <a href="#">community guidelines</a> before you
-                book.
+                Some items can&apos;t be carried. Not sure about yours?{" "}
+                <Link href="/contact?type=customer">Ask us</Link> before you book.
               </p>
             </div>
           </div>
@@ -668,8 +668,8 @@ export default function HomePage() {
                 <summary>What can I send with GoRush?</summary>
                 <p>
                   Documents, small and medium parcels, food orders and everyday essentials that can be safely
-                  carried on a bike. Some items aren&apos;t allowed. Check our community guidelines before
-                  booking.
+                  carried on a bike. Some items aren&apos;t allowed. If you&apos;re not sure,{" "}
+                  <Link href="/contact?type=customer">ask us</Link> before booking.
                 </p>
               </details>
               <details>
